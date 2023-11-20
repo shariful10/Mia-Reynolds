@@ -1,8 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Alex_Brush, Montserrat } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const alexBrush = Alex_Brush({
+	weight: ["400"],
+	subsets: ["latin"],
+	variable: "--font-alexBrush",
+});
+
+const montserrat = Montserrat({
+	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+	subsets: ["latin"],
+	variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -12,7 +22,9 @@ export const metadata: Metadata = {
 export const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={`${alexBrush.variable} ${montserrat.variable}`}>
+				{children}
+			</body>
 		</html>
 	);
 };
